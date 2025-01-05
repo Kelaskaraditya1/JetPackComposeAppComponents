@@ -34,13 +34,13 @@ import kotlin.coroutines.CoroutineContext
 @Composable
 fun BottomSheetCompose(){
 
-    val sheetState = rememberStandardBottomSheetState(initialValue = SheetValue.PartiallyExpanded)
+    var sheetState = rememberStandardBottomSheetState(initialValue = SheetValue.PartiallyExpanded)
 
-    val scaffoldState = rememberBottomSheetScaffoldState(
+    var scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = sheetState
     )
 
-    val coroutineScope = rememberCoroutineScope()
+    var coroutineScope = rememberCoroutineScope()
 
      BottomSheetScaffold(sheetContent ={
          // content for Bottom Sheet
@@ -56,7 +56,7 @@ fun BottomSheetCompose(){
      } ,
          sheetContainerColor = Color.LightGray,
          sheetShape = RoundedCornerShape(15.dp),
-         sheetShadowElevation = 12.dp,
+         sheetShadowElevation = 15.dp,
          sheetSwipeEnabled = true,
          modifier = Modifier.padding(start = 10.dp, end = 10.dp),
          scaffoldState = scaffoldState) {
@@ -67,10 +67,10 @@ fun BottomSheetCompose(){
              Button(onClick = {
 
                  coroutineScope.launch {
-                     if (sheetState.currentValue == SheetValue.Hidden) {
-                         sheetState.expand()
-                     } else {
+                     if (sheetState.currentValue == SheetValue.Expanded) {
                          sheetState.hide()
+                     } else {
+                         sheetState.expand()
                      }
                  }
 
