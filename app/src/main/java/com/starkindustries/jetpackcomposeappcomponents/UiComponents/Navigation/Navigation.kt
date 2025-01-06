@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.HomeScreen
 import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.NotificationScreen
+import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.PostsScreen
 import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.ProfileScreen
 import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.SearchScreen
 import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Routes.Routes
@@ -28,6 +29,9 @@ fun NavigationCompose(){
         }
         composable(route=Routes.NotificationScreen.route){
             NotificationScreen()
+        }
+        composable(route=Routes.PostsScreen.route){
+            PostsScreen()
         }
     }
 }
