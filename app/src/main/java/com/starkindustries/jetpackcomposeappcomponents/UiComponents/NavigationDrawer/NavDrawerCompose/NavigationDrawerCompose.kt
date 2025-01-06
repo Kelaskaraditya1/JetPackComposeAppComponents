@@ -1,4 +1,4 @@
-package com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer
+package com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.NavDrawerCompose
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -30,12 +30,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.Compose.HeaderCompose
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.Compose.HomeScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.Compose.ProfileScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.Compose.SettingsScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.Navigation.NavigationCompose
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.NavigationDrawer.Routes.Routes
+import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.HomeScreen
+import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.ProfileScreen
+import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.SettingsScreen
+import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Routes.Routes
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -145,22 +143,126 @@ fun NavigationDrawerCompose() {
             }
         ) {
             NavHost(navController = navController, startDestination = Routes.HomeScreen.route){
-                composable(route=Routes.HomeScreen.route){
+                composable(route= Routes.HomeScreen.route){
                     HomeScreen()
                 }
-                composable(route=Routes.ProfileScreen.route){
+                composable(route= Routes.ProfileScreen.route){
                     ProfileScreen()
                 }
-                composable(route=Routes.ProfileScreen.route){
+                composable(route= Routes.ProfileScreen.route){
                     ProfileScreen()
                 }
             }        }
     }
 }
 
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TestnavigationDrawer(){
+    var coroutineScope = rememberCoroutineScope()
+    var drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    var navController = rememberNavController()
+    ModalNavigationDrawer(drawerState=drawerState
+        , gesturesEnabled = true
+            , drawerContent = {
+                ModalDrawerSheet {
+                    HeaderCompose()
+                    Spacer(modifier = Modifier
+                        .height(10.dp))
+                    NavigationDrawerItem(label = { Text(text = "Home Screen"
+                    , fontWeight = FontWeight.W500
+                    , fontSize = 18.sp) }
+                        , selected = false
+                        , onClick = {
+                            coroutineScope.launch {
+                                drawerState.close()
+                            }
+                            navController.navigate(Routes.HomeScreen.route){
+                                popUpTo(0)
+                            }
+                        }
+                    , icon = {
+                        Icon(imageVector = Icons.Default.Home, contentDescription = "")
+                        })
+
+                    NavigationDrawerItem(label = { Text(text = "Profile Screen"
+                    , fontSize = 18.sp
+                    , fontWeight = FontWeight.W500) }
+                        , selected = false
+                        , onClick = {
+                            coroutineScope.launch {
+                                drawerState.close()
+                            }
+                            navController.navigate(Routes.ProfileScreen.route){
+                                popUpTo(0)
+
+                            }
+                    }
+                    , icon = {
+                        Icon(imageVector = Icons.Default.Person, contentDescription = "")
+                        })
+
+                    NavigationDrawerItem(label = {
+                        Text(text = "Settings Screen"
+                        , fontWeight = FontWeight.W500
+                        , fontSize = 18.sp)
+                    }
+                        , selected = false
+                        , onClick = {
+                            coroutineScope.launch {
+                                drawerState.close()
+                            }
+                            navController.navigate(Routes.SettingScreen.route){
+                                popUpTo(0)
+
+                            }
+                        }
+                    , icon = {
+                        Icon(imageVector = Icons.Default.Settings, contentDescription = "")
+                        })
+                }
+        }) {
+        Scaffold(
+            topBar = {
+                TopAppBar(title = {
+                    Text(text = "Navigation Drawer"
+                    , fontWeight = FontWeight.W500
+                    , fontSize = 18.sp)
+                },
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            coroutineScope.launch {
+                                drawerState.open()
+                            }
+                        }) {
+                            Icon(imageVector = Icons.Default.Menu, contentDescription = "")
+                        }
+                    }
+                , colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent
+                    , navigationIconContentColor = Color.Black
+                ))
+            }
+        ) {
+            NavHost(navController = navController, startDestination = Routes.HomeScreen.route ){
+                composable(Routes.HomeScreen.route){
+                    HomeScreen()
+                }
+                composable(Routes.ProfileScreen.route){
+                    ProfileScreen()
+                }
+                composable(Routes.SettingScreen.route){
+                    SettingsScreen()
+                }
+            }
+        }
+    }
+}
+
 @Composable
 @Preview(showBackground = true, showSystemUi = true)
 fun PreviewFunction(){
-    NavigationDrawerCompose()
+    TestnavigationDrawer()
 
 }
