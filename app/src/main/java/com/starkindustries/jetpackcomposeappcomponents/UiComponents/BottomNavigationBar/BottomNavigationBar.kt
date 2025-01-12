@@ -41,13 +41,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.starkindustries.jetpackcomposeappcomponents.UiComponents.BottomSheet.Compose.PostRowCompose
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.HomeScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.NotificationScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.PostsScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.ProfileScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.SearchScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.SettingsScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Routes.Routes
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.HomeScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.NotificationScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.PostsScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.ProfileScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.SearchScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.SettingsScreen
+import com.starkindustries.jetpackcomposeappcomponents.Routes.Routes
 import com.starkindustries.jetpackcomposeappcomponents.ui.theme.SeaFoam
 import java.lang.reflect.Modifier
 
@@ -155,7 +155,7 @@ fun BottomNavigationBarCompose(){
         }
     ) {
         NavHost(navController = navController, startDestination = Routes.HomeScreen.route) {
-            composable(route=Routes.HomeScreen.route){
+            composable(route= Routes.HomeScreen.route){
                 HomeScreen()
             }
             composable(route = Routes.ProfileScreen.route){
@@ -165,7 +165,7 @@ fun BottomNavigationBarCompose(){
                 SearchScreen()
             }
 
-            composable(route=Routes.NotificationScreen.route){
+            composable(route= Routes.NotificationScreen.route){
                 NotificationScreen()
             }
 

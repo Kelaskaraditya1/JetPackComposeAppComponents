@@ -1,4 +1,4 @@
-package com.starkindustries.jetpackcomposeappcomponents.UiComponents.Keys
+package com.starkindustries.jetpackcomposeappcomponents.Keys
 
 class Keys{
     companion object{

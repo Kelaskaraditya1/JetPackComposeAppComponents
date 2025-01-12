@@ -30,10 +30,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.HomeScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.ProfileScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments.SettingsScreen
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Routes.Routes
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.HomeScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.ProfileScreen
+import com.starkindustries.jetpackcomposeappcomponents.Fragments.SettingsScreen
+import com.starkindustries.jetpackcomposeappcomponents.Routes.Routes
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

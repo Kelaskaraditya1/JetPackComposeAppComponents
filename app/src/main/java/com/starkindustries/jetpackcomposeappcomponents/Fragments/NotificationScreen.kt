@@ -1,4 +1,4 @@
-package com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments
+package com.starkindustries.jetpackcomposeappcomponents.Fragments
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

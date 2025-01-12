@@ -1,6 +1,6 @@
-package com.starkindustries.jetpackcomposeappcomponents.UiComponents.Routes
+package com.starkindustries.jetpackcomposeappcomponents.Routes
 
-import com.starkindustries.jetpackcomposeappcomponents.UiComponents.Keys.Keys
+import com.starkindustries.jetpackcomposeappcomponents.Keys.Keys
 
 sealed class Routes(var route:String){
     object HomeScreen: Routes(Keys.HOME_SCREEN_ROUTE)
@@ -8,5 +8,5 @@ sealed class Routes(var route:String){
     object ProfileScreen: Routes(Keys.PROFILE_SCREEN_ROUTE)
     object SearchScreen: Routes(Keys.SEARCH_SCREEN_ROUTE)
     object NotificationScreen: Routes(Keys.NOTIFICATION_SCREEN_ROUTE)
-    object PostsScreen:Routes(Keys.POSTS_SCREEN_ROUTE)
+    object PostsScreen: Routes(Keys.POSTS_SCREEN_ROUTE)
 }

@@ -1,4 +1,4 @@
-package com.starkindustries.jetpackcomposeappcomponents.UiComponents.Fragments
+package com.starkindustries.jetpackcomposeappcomponents.Fragments
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,10 +11,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SearchScreen(){
+fun ProfileScreen(){
     Box(modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center){
-        Text(text = "Search Screen",
+        Text(text = "Profile Screen",
             fontSize = 25.sp,
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center)
